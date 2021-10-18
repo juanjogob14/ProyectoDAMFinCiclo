@@ -135,10 +135,10 @@ namespace VivasGramm
             using (StreamReader sr = new StreamReader(ns))
             using (StreamWriter sw = new StreamWriter(ns))
             {
-                sw.WriteLine("Bienvenido a VivasGram Puerto:{0} || IP:{1}", info.Port, info.Address);
+                sw.WriteLine("Wellcome Puerto:{0} || IP:{1}", info.Port, info.Address);
                 lock (l)
                 {
-                    sw.WriteLine("Usuarios conectados en este momento:{0} ", usuarios.Count);
+                    sw.WriteLine("Personas conectadas:{0} ", usuarios.Count);
                 }
                 sw.Flush();
 
@@ -163,7 +163,7 @@ namespace VivasGramm
                     }
                     catch (IOException)
                     {
-                        Console.WriteLine("Desconexión: " + info.Port);
+                        Console.WriteLine("Entro aqui, se marchó" + info.Port);
                         socketusuario.Close();
                         lock (l)
                         {
