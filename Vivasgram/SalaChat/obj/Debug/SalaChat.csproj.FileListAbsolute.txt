@@ -1,0 +1,10 @@
+C:\Users\Juanjo\source\repos\Vivasgram\SalaChat\bin\Debug\SalaChat.exe.config
+C:\Users\Juanjo\source\repos\Vivasgram\SalaChat\bin\Debug\SalaChat.exe
+C:\Users\Juanjo\source\repos\Vivasgram\SalaChat\bin\Debug\SalaChat.pdb
+C:\Users\Juanjo\source\repos\Vivasgram\SalaChat\obj\Debug\SalaChat.csprojAssemblyReference.cache
+C:\Users\Juanjo\source\repos\Vivasgram\SalaChat\obj\Debug\SalaChat.Form1.resources
+C:\Users\Juanjo\source\repos\Vivasgram\SalaChat\obj\Debug\SalaChat.Properties.Resources.resources
+C:\Users\Juanjo\source\repos\Vivasgram\SalaChat\obj\Debug\SalaChat.csproj.GenerateResource.cache
+C:\Users\Juanjo\source\repos\Vivasgram\SalaChat\obj\Debug\SalaChat.csproj.CoreCompileInputs.cache
+C:\Users\Juanjo\source\repos\Vivasgram\SalaChat\obj\Debug\SalaChat.exe
+C:\Users\Juanjo\source\repos\Vivasgram\SalaChat\obj\Debug\SalaChat.pdb

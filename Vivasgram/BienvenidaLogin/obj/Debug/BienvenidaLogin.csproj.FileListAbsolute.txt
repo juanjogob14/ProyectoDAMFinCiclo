@@ -1,0 +1,10 @@
+C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\bin\Debug\BienvenidaLogin.exe.config
+C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\bin\Debug\BienvenidaLogin.exe
+C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\bin\Debug\BienvenidaLogin.pdb
+C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\obj\Debug\BienvenidaLogin.csprojAssemblyReference.cache
+C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\obj\Debug\BienvenidaLogin.Form1.resources
+C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\obj\Debug\BienvenidaLogin.Properties.Resources.resources
+C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\obj\Debug\BienvenidaLogin.csproj.GenerateResource.cache
+C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\obj\Debug\BienvenidaLogin.csproj.CoreCompileInputs.cache
+C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\obj\Debug\BienvenidaLogin.exe
+C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\obj\Debug\BienvenidaLogin.pdb
