@@ -5,3 +5,10 @@ C:\Users\Juanjo\source\repos\VivasGramm\VivasGramm\obj\Debug\VivasGramm.csprojAs
 C:\Users\Juanjo\source\repos\VivasGramm\VivasGramm\obj\Debug\VivasGramm.csproj.CoreCompileInputs.cache
 C:\Users\Juanjo\source\repos\VivasGramm\VivasGramm\obj\Debug\VivasGramm.exe
 C:\Users\Juanjo\source\repos\VivasGramm\VivasGramm\obj\Debug\VivasGramm.pdb
+C:\Users\Juanjo\source\repos\Vivasgram\VivasGramm\bin\Debug\VivasGramm.exe.config
+C:\Users\Juanjo\source\repos\Vivasgram\VivasGramm\bin\Debug\VivasGramm.exe
+C:\Users\Juanjo\source\repos\Vivasgram\VivasGramm\bin\Debug\VivasGramm.pdb
+C:\Users\Juanjo\source\repos\Vivasgram\VivasGramm\obj\Debug\VivasGramm.csprojAssemblyReference.cache
+C:\Users\Juanjo\source\repos\Vivasgram\VivasGramm\obj\Debug\VivasGramm.csproj.CoreCompileInputs.cache
+C:\Users\Juanjo\source\repos\Vivasgram\VivasGramm\obj\Debug\VivasGramm.exe
+C:\Users\Juanjo\source\repos\Vivasgram\VivasGramm\obj\Debug\VivasGramm.pdb

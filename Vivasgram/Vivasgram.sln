@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VivasGramm", "VivasGramm\VivasGramm.csproj", "{14DC8B11-08C0-42CA-82F4-4F82532A9054}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalaChat", "SalaChat\SalaChat.csproj", "{97024817-DD85-450A-B14C-39CD8A78926F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BienvenidaLogin", "BienvenidaLogin\BienvenidaLogin.csproj", "{C136E40D-9487-43EB-A76A-60A7150B1CB1}"
 EndProject
 Global
@@ -19,10 +17,6 @@ Global
 		{14DC8B11-08C0-42CA-82F4-4F82532A9054}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14DC8B11-08C0-42CA-82F4-4F82532A9054}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{14DC8B11-08C0-42CA-82F4-4F82532A9054}.Release|Any CPU.Build.0 = Release|Any CPU
-		{97024817-DD85-450A-B14C-39CD8A78926F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{97024817-DD85-450A-B14C-39CD8A78926F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{97024817-DD85-450A-B14C-39CD8A78926F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{97024817-DD85-450A-B14C-39CD8A78926F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C136E40D-9487-43EB-A76A-60A7150B1CB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C136E40D-9487-43EB-A76A-60A7150B1CB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C136E40D-9487-43EB-A76A-60A7150B1CB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
