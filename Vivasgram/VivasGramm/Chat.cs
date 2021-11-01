@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -92,6 +93,29 @@ namespace VivasGramm
                     socketConexion.Bind(endpoint);
                     socketConexion.Listen(2);
 
+                    string cadenaConexion = "Database = vivasgram; Data Source=localhost; Port = 3306; User id=root ; Password=Orbeaalma1419 ";
+
+                    MySqlConnection conectbd = new MySqlConnection(cadenaConexion);
+                    MySqlDataReader reader = null;
+
+                    try
+                    {
+                        string consulta = "Delete from usuarios";
+                        MySqlCommand comando = new MySqlCommand(consulta);
+                        comando.Connection = conectbd;
+                        conectbd.Open();
+                        reader = comando.ExecuteReader();
+                    }
+                    catch (MySqlException e)
+                    {
+                        Console.WriteLine("Error: " + e.ErrorCode);
+
+                    }
+                    finally
+                    {
+                        conectbd.Close();
+                    }
+
                     while (true)
                     {
                         Socket socketCliente = socketConexion.Accept();
@@ -111,10 +135,11 @@ namespace VivasGramm
                         puerto = 10000;
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-
+                    Console.WriteLine("Error : "+ex.Message);
                 }
+
             }
         }
 

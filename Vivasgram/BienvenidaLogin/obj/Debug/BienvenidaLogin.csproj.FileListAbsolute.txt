@@ -13,3 +13,17 @@ C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\bin\Debug\VivasGramm.pdb
 C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\bin\Debug\VivasGramm.exe.config
 C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\obj\Debug\BienvenidaLogin.csproj.CopyComplete
 C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\obj\Debug\BienvenidaLogin.Form2.resources
+C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\bin\Debug\MySql.Data.dll
+C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\bin\Debug\Google.Protobuf.dll
+C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\bin\Debug\ZstdNet.dll
+C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\bin\Debug\Ubiety.Dns.Core.dll
+C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\bin\Debug\System.Memory.dll
+C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\bin\Debug\System.Buffers.dll
+C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\bin\Debug\K4os.Compression.LZ4.dll
+C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\bin\Debug\K4os.Hash.xxHash.dll
+C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\bin\Debug\MySql.Data.xml
+C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\obj\Debug\BienvenidaLogin.exe.config

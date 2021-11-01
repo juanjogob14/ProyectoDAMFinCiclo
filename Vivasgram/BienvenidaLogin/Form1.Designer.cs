@@ -34,8 +34,7 @@ namespace BienvenidaLogin
             this.btnCancelar = new System.Windows.Forms.Button();
             this.lblNombre = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
-            this.lblContrasena = new System.Windows.Forms.Label();
-            this.txtContrasena = new System.Windows.Forms.TextBox();
+            this.lblAviso = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnConectar
@@ -61,34 +60,28 @@ namespace BienvenidaLogin
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(43, 73);
+            this.lblNombre.Location = new System.Drawing.Point(43, 145);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(57, 17);
+            this.lblNombre.Size = new System.Drawing.Size(75, 17);
             this.lblNombre.TabIndex = 2;
-            this.lblNombre.Text = "Usuario";
+            this.lblNombre.Text = "UserName";
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(181, 70);
+            this.txtNombre.Location = new System.Drawing.Point(181, 142);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(233, 22);
             this.txtNombre.TabIndex = 3;
             // 
-            // lblContrasena
+            // lblAviso
             // 
-            this.lblContrasena.AutoSize = true;
-            this.lblContrasena.Location = new System.Drawing.Point(43, 143);
-            this.lblContrasena.Name = "lblContrasena";
-            this.lblContrasena.Size = new System.Drawing.Size(81, 17);
-            this.lblContrasena.TabIndex = 4;
-            this.lblContrasena.Text = "Contraseña";
-            // 
-            // txtContrasena
-            // 
-            this.txtContrasena.Location = new System.Drawing.Point(181, 140);
-            this.txtContrasena.Name = "txtContrasena";
-            this.txtContrasena.Size = new System.Drawing.Size(233, 22);
-            this.txtContrasena.TabIndex = 5;
+            this.lblAviso.AutoSize = true;
+            this.lblAviso.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.lblAviso.ForeColor = System.Drawing.Color.Red;
+            this.lblAviso.Location = new System.Drawing.Point(181, 205);
+            this.lblAviso.Name = "lblAviso";
+            this.lblAviso.Size = new System.Drawing.Size(0, 17);
+            this.lblAviso.TabIndex = 4;
             // 
             // Form1
             // 
@@ -97,8 +90,7 @@ namespace BienvenidaLogin
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancelar;
             this.ClientSize = new System.Drawing.Size(451, 350);
-            this.Controls.Add(this.txtContrasena);
-            this.Controls.Add(this.lblContrasena);
+            this.Controls.Add(this.lblAviso);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.btnCancelar);
@@ -118,8 +110,7 @@ namespace BienvenidaLogin
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.Label lblContrasena;
-        private System.Windows.Forms.TextBox txtContrasena;
+        private System.Windows.Forms.Label lblAviso;
     }
 }
 

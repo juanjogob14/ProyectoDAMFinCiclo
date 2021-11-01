@@ -33,6 +33,7 @@ namespace BienvenidaLogin
             this.txtRedaccion = new System.Windows.Forms.TextBox();
             this.txtMensajes = new System.Windows.Forms.TextBox();
             this.btnEnviar = new System.Windows.Forms.Button();
+            this.lblConexiones = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtRedaccion
@@ -60,11 +61,21 @@ namespace BienvenidaLogin
             this.btnEnviar.UseVisualStyleBackColor = true;
             this.btnEnviar.Click += new System.EventHandler(this.btnEnviar_Click);
             // 
+            // lblConexiones
+            // 
+            this.lblConexiones.AutoSize = true;
+            this.lblConexiones.Location = new System.Drawing.Point(430, 117);
+            this.lblConexiones.Name = "lblConexiones";
+            this.lblConexiones.Size = new System.Drawing.Size(0, 17);
+            this.lblConexiones.TabIndex = 3;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(582, 535);
+            this.Controls.Add(this.lblConexiones);
             this.Controls.Add(this.btnEnviar);
             this.Controls.Add(this.txtMensajes);
             this.Controls.Add(this.txtRedaccion);
@@ -82,5 +93,6 @@ namespace BienvenidaLogin
         private System.Windows.Forms.TextBox txtRedaccion;
         private System.Windows.Forms.TextBox txtMensajes;
         private System.Windows.Forms.Button btnEnviar;
+        private System.Windows.Forms.Label lblConexiones;
     }
 }
