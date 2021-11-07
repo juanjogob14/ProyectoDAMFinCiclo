@@ -17,37 +17,29 @@ namespace BienvenidaLogin
     {
         // https://www.youtube.com/watch?v=IfJfaDtaFpQ&ab_channel=C%C3%B3digosdeProgramaci%C3%B3n-MR
         static string cadenaConexion = "Database = vivasgram; Data Source=localhost; Port = 3306; User id=root ; Password=Orbeaalma1419 ";
-
+        
         MySqlConnection conectbd = new MySqlConnection(cadenaConexion);
         MySqlConnection conectbd2 = new MySqlConnection(cadenaConexion);
         MySqlDataReader reader = null;
         MySqlDataReader reader2 = null;
-        string nombre = null;
         bool usuarioRegistrado = false;
         List<string> nombresUsers = new List<string>();
 
-
         const string IP_SERVER = "127.0.0.1";
-        string msg;
-        string userMsg;
+
         public Form1()
         {
             InitializeComponent();
+            this.MinimizeBox = false;
+            this.MaximizeBox = false;
 
         }
         IPEndPoint ie = new IPEndPoint(IPAddress.Parse(IP_SERVER), 15001);
         Socket server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         private void btnConectar_Click(object sender, EventArgs e)
         {
-            if (txtNombre.Text == "")
-            {
-                lblAviso.Text = "INTRODUZCA UN USUARIO";
-            }
-            else
-            {
                 try
                 {
-                    Console.WriteLine("Bieeeeen");
                     string consultaComprueba = "Select nombreusuario from usuarios";
                     MySqlCommand comando2 = new MySqlCommand(consultaComprueba);
                     comando2.Connection = conectbd2;
@@ -70,26 +62,28 @@ namespace BienvenidaLogin
                             }
                         }
                     }
-                    if (usuarioRegistrado)
+
+                    lblAviso.Text = "";
+
+                    if (txtNombre.Text=="" || usuarioRegistrado)
                     {
-                        lblAviso.Text = "";
-                        lblAviso.Text = "USUARIO YA CONECTADO";
+                        lblAviso.Text = "INTRODUZCA UN USUARIO CORRECTO";
                     }
                     else
                     {
-                        string consulta = "Insert into usuarios (nombreusuario, puerto) values " + "('" + txtNombre.Text + "','" + ie.Port + "');";
+                        Form2 f = new Form2();
+                        f.nombreUsuario = this.txtNombre.Text;
+                        f.Conectar();
+                        string consulta = "Insert into usuarios (nombreusuario) values " + "('" + txtNombre.Text + "');";
                         MySqlCommand comando = new MySqlCommand(consulta);
                         comando.Connection = conectbd;
                         conectbd.Open();
                         reader = comando.ExecuteReader();
-                        server.Connect(ie);
-                        lblAviso.Text = "";
-                        Form2 f = new Form2();
+
                         f.ShowDialog();
                         this.Close();
                     }
-
-
+         
                 }
                 catch (SocketException se)
                 {
@@ -97,9 +91,8 @@ namespace BienvenidaLogin
                 }
                 finally
                 {
-                    conectbd.Close();
-                    conectbd2.Close();
-                }
+                conectbd.Close();
+                conectbd2.Close();
             }
             
         }

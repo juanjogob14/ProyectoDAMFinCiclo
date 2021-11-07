@@ -8,199 +8,125 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using BienvenidaLogin;
 
 namespace VivasGramm
 {
     class Chat
     {
-        private List<Socket> usuarios = new List<Socket>();
-        public Object l = new object();
+        private TcpListener server;
+        private TcpClient client = new TcpClient();
+        private IPEndPoint ipendpoint = new IPEndPoint(IPAddress.Any, 15001);
+        private List<Connection> list = new List<Connection>();
+        BienvenidaLogin.Form2 form2 = new Form2();
 
-        public int ComprobarPuerto()
+
+        private struct Connection
         {
-            Console.WriteLine("entrar");
+            public NetworkStream stream;
+            public StreamWriter streamw;
+            public StreamReader streamr;
+            public string nick;
+        }
+
+        Connection con;
+
+        public Chat()
+        {
+            
+        }
+
+        string cadenaConexion = "Database = vivasgram; Data Source=localhost; Port = 3306; User id=root ; Password=Orbeaalma1419 ";
+        public void Inicio()
+        {
+            Console.WriteLine("Servidor en marcha");
+            server = new TcpListener(ipendpoint);
+            server.Start();
+
+
+            MySqlConnection conectbd = new MySqlConnection(cadenaConexion);
+            MySqlDataReader reader = null;
+
             try
             {
-                using (StreamReader sr = new StreamReader("C:\\puerto.txt")) 
-                {
-                    string linea = sr.ReadLine();
-                    if (linea != null)
-                    {
-                        try
-                        {
-                            int numPuerto = Convert.ToInt32(linea);
-                            if (numPuerto > 10000 && numPuerto <= IPEndPoint.MaxPort)
-                            {
-                                Console.WriteLine("Valor válido");
-                                return numPuerto;
-                            }
-                        }
-                        catch (Exception)
-                        {
-                            Console.WriteLine("Error");
-                        }
-                    }
-                }
+                string consulta = "Delete from usuarios";
+                MySqlCommand comando = new MySqlCommand(consulta);
+                comando.Connection = conectbd;
+                conectbd.Open();
+                reader = comando.ExecuteReader();
             }
-            catch (Exception)
+            catch (MySqlException e)
             {
-                Console.WriteLine("No hay archivo");
+                Console.WriteLine("Error: " + e.ErrorCode);
+
             }
-            return 10000;
+            finally
+            {
+                conectbd.Close();
+            }
+
+            while (true)
+            {
+                client = server.AcceptTcpClient();
+                con = new Connection();
+                con.stream = client.GetStream();
+                con.streamr = new StreamReader(con.stream);
+                con.streamw = new StreamWriter(con.stream);
+
+                con.nick = con.streamr.ReadLine();
+
+                list.Add(con);
+                Console.WriteLine(con.nick + " se ha conectado.");
+
+                Thread t = new Thread(Escuchar_conexion);
+
+                t.Start();
+            }
+
+
         }
 
-        public void EnvioMensaje(string m, IPEndPoint ie)
+        void Escuchar_conexion()
         {
-            IPEndPoint info;
-            lock (l)
-            {
-                for (int i = usuarios.Count; i > 0; i--)
-                {
-                    info = (IPEndPoint)usuarios[i - 1].RemoteEndPoint;
-                    using (NetworkStream ns = new NetworkStream(usuarios[i - 1]))
-                    using (StreamWriter sw = new StreamWriter(ns))
-                    {
-                        try
-                        {
-                            if (ie.Port != info.Port)
-                            {
-                                //Usuarios conectados en el momento -> usuarios.Count
-                                sw.WriteLine("Ip: {0}, Puerto:{1}: {2}", ie.Address, ie.Port, m);
-                                sw.Flush();
-                            }
-                        }
-                        catch (Exception e)
-                        {
-                            Console.WriteLine(e.Message + "");
-                        }
-                    }
-                }
-            }
-        }
+            Connection usercon = con;
 
-        public void IniciarServer()
-        {
-            bool puertoCorrecto = false;
-            int puerto = ComprobarPuerto();
-            while (!puertoCorrecto)
+            do
             {
                 try
                 {
-                    IPEndPoint endpoint = new IPEndPoint(IPAddress.Parse("127.0.0.1"), puerto);
-                    puertoCorrecto = true;
-
-                    Socket socketConexion = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                    socketConexion.Bind(endpoint);
-                    socketConexion.Listen(2);
-
-                    string cadenaConexion = "Database = vivasgram; Data Source=localhost; Port = 3306; User id=root ; Password=Orbeaalma1419 ";
-
-                    MySqlConnection conectbd = new MySqlConnection(cadenaConexion);
-                    MySqlDataReader reader = null;
-
-                    try
+                    string mensaje = usercon.streamr.ReadLine();
+                    Console.WriteLine(usercon.nick + ": " + mensaje);
+                    foreach (Connection c in list)
                     {
-                        string consulta = "Delete from usuarios";
-                        MySqlCommand comando = new MySqlCommand(consulta);
-                        comando.Connection = conectbd;
-                        conectbd.Open();
-                        reader = comando.ExecuteReader();
-                    }
-                    catch (MySqlException e)
-                    {
-                        Console.WriteLine("Error: " + e.ErrorCode);
-
-                    }
-                    finally
-                    {
-                        conectbd.Close();
-                    }
-
-                    while (true)
-                    {
-                        Socket socketCliente = socketConexion.Accept();
-                        Thread hilos = new Thread(HiloCliente);
-                        hilos.Start(socketCliente);
-                    }
-                }
-                catch (SocketException e) when (e.ErrorCode == (int)SocketError.AddressAlreadyInUse)
-                {
-
-                    if (puerto < IPEndPoint.MaxPort)
-                    {
-                        puerto++;
-                    }
-                    else
-                    {
-                        puerto = 10000;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Error : "+ex.Message);
-                }
-
-            }
-        }
-
-        public void HiloCliente(object Socket)
-        {
-            Socket socketusuario = (Socket)Socket;
-            string mensaje;
-            bool cerrarChat = false;
-
-            lock (l)
-            {
-                usuarios.Add(socketusuario);
-            }
-
-            IPEndPoint info = (IPEndPoint)socketusuario.RemoteEndPoint;
-
-            using (NetworkStream ns = new NetworkStream(socketusuario))
-            using (StreamReader sr = new StreamReader(ns))
-            using (StreamWriter sw = new StreamWriter(ns))
-            {
-                sw.WriteLine("Bienvenido a VivasGram Puerto:{0} || IP:{1}", info.Port, info.Address);
-                lock (l)
-                {
-                    sw.WriteLine("Usuarios conectados en este momento:{0} ", usuarios.Count);
-                }
-                sw.Flush();
-
-                while (!cerrarChat)
-                {
-                    try
-                    {
-                        mensaje = sr.ReadLine();
-                        if (mensaje != null)
+                        try
                         {
-                            if (mensaje == "salir")
-                            {
-                                cerrarChat = true;
-                                EnvioMensaje("Se ha desconectado", info);
-                            }
-                            else
-                            {
-                                EnvioMensaje(mensaje, info);
-                            }
+                            c.streamw.WriteLine(usercon.nick + ": " + mensaje);
+                            c.streamw.Flush();                            
                         }
-
-                    }
-                    catch (IOException)
-                    {
-                        Console.WriteLine("Desconexión: " + info.Port);
-                        socketusuario.Close();
-                        lock (l)
+                        catch
                         {
-                            usuarios.Remove(socketusuario);
+                            Console.WriteLine("se ha detenido la conexion");
                         }
-                        cerrarChat = true;
                     }
-
-
+                    
                 }
+                catch
+                {
+                    list.Remove(usercon);
+                    MySqlConnection conectbd2 = new MySqlConnection(cadenaConexion);
+                    MySqlDataReader reader2 = null;
 
-            }
+                    Console.WriteLine(usercon.nick + " se ha desconectado. Usuarios conectados: "+list.Count);
+                    string consulta = "Delete from usuarios where nombreusuario like '" + usercon.nick + "'";
+                    MySqlCommand comando = new MySqlCommand(consulta);
+                    comando.Connection = conectbd2;
+                    conectbd2.Open();
+                    reader2 = comando.ExecuteReader();
+                    conectbd2.Close();
+
+                    break;
+                }
+            } while (true);
         }
     }
 }
