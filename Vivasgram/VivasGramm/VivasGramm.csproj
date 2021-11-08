@@ -54,11 +54,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BienvenidaLogin\BienvenidaLogin.csproj">
-      <Project>{c136e40d-9487-43eb-a76a-60a7150b1cb1}</Project>
-      <Name>BienvenidaLogin</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

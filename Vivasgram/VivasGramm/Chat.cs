@@ -8,7 +8,6 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using BienvenidaLogin;
 
 namespace VivasGramm
 {
@@ -18,7 +17,6 @@ namespace VivasGramm
         private TcpClient client = new TcpClient();
         private IPEndPoint ipendpoint = new IPEndPoint(IPAddress.Any, 15001);
         private List<Connection> list = new List<Connection>();
-        BienvenidaLogin.Form2 form2 = new Form2();
 
 
         private struct Connection
@@ -36,7 +34,7 @@ namespace VivasGramm
             
         }
 
-        string cadenaConexion = "Database = vivasgram; Data Source=localhost; Port = 3306; User id=root ; Password=Orbeaalma1419 ";
+        string cadenaConexion = "Database = vivasgram; Data Source=localhost; Port = 3306; User id=root ; ";
         public void Inicio()
         {
             Console.WriteLine("Servidor en marcha");

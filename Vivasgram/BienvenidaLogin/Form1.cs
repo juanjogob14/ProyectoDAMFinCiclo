@@ -16,7 +16,7 @@ namespace BienvenidaLogin
     public partial class Form1 : Form
     {
         // https://www.youtube.com/watch?v=IfJfaDtaFpQ&ab_channel=C%C3%B3digosdeProgramaci%C3%B3n-MR
-        static string cadenaConexion = "Database = vivasgram; Data Source=localhost; Port = 3306; User id=root ; Password=Orbeaalma1419 ";
+        static string cadenaConexion = "Database = vivasgram; Data Source=localhost; Port = 3306; User id=root ; ";
         
         MySqlConnection conectbd = new MySqlConnection(cadenaConexion);
         MySqlConnection conectbd2 = new MySqlConnection(cadenaConexion);

@@ -92,5 +92,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VivasGramm\VivasGramm.csproj">
+      <Project>{14dc8b11-08c0-42ca-82f4-4f82532a9054}</Project>
+      <Name>VivasGramm</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
