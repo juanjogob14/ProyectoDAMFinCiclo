@@ -11,7 +11,7 @@ namespace VivasGramm
         static void Main(string[] args)
         {
             Chat chat = new Chat();
-            chat.Inicio();
+            chat.InicioChat();
         }
     }
 }

@@ -1,7 +1,6 @@
 C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\bin\Debug\BienvenidaLogin.exe.config
 C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\bin\Debug\BienvenidaLogin.exe
 C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\bin\Debug\BienvenidaLogin.pdb
-C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\obj\Debug\BienvenidaLogin.csprojAssemblyReference.cache
 C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\obj\Debug\BienvenidaLogin.Form1.resources
 C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\obj\Debug\BienvenidaLogin.Properties.Resources.resources
 C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\obj\Debug\BienvenidaLogin.csproj.GenerateResource.cache
@@ -9,7 +8,6 @@ C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\obj\Debug\BienvenidaLogin
 C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\obj\Debug\BienvenidaLogin.exe
 C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\obj\Debug\BienvenidaLogin.pdb
 C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\obj\Debug\BienvenidaLogin.csproj.CopyComplete
-C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\obj\Debug\BienvenidaLogin.Form2.resources
 C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\bin\Debug\MySql.Data.dll
 C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\bin\Debug\Google.Protobuf.dll
 C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\bin\Debug\ZstdNet.dll
@@ -35,29 +33,46 @@ C:\Users\juanjo\Desktop\Vivasgram\BienvenidaLogin\obj\Debug\BienvenidaLogin.cspr
 C:\Users\juanjo\Desktop\Vivasgram\BienvenidaLogin\obj\Debug\BienvenidaLogin.exe
 C:\Users\juanjo\Desktop\Vivasgram\BienvenidaLogin\obj\Debug\BienvenidaLogin.pdb
 C:\Users\juanjo\Desktop\Vivasgram\BienvenidaLogin\obj\Debug\BienvenidaLogin.csproj.AssemblyReference.cache
-H:\DAM 2020\Proyecto fin de ciclo\v2\v3\Vivasgram\BienvenidaLogin\bin\Debug\BienvenidaLogin.exe.config
-H:\DAM 2020\Proyecto fin de ciclo\v2\v3\Vivasgram\BienvenidaLogin\bin\Debug\BienvenidaLogin.exe
-H:\DAM 2020\Proyecto fin de ciclo\v2\v3\Vivasgram\BienvenidaLogin\bin\Debug\BienvenidaLogin.pdb
-H:\DAM 2020\Proyecto fin de ciclo\v2\v3\Vivasgram\BienvenidaLogin\bin\Debug\MySql.Data.dll
-H:\DAM 2020\Proyecto fin de ciclo\v2\v3\Vivasgram\BienvenidaLogin\bin\Debug\Google.Protobuf.dll
-H:\DAM 2020\Proyecto fin de ciclo\v2\v3\Vivasgram\BienvenidaLogin\bin\Debug\ZstdNet.dll
-H:\DAM 2020\Proyecto fin de ciclo\v2\v3\Vivasgram\BienvenidaLogin\bin\Debug\K4os.Compression.LZ4.Streams.dll
-H:\DAM 2020\Proyecto fin de ciclo\v2\v3\Vivasgram\BienvenidaLogin\bin\Debug\BouncyCastle.Crypto.dll
-H:\DAM 2020\Proyecto fin de ciclo\v2\v3\Vivasgram\BienvenidaLogin\bin\Debug\Ubiety.Dns.Core.dll
-H:\DAM 2020\Proyecto fin de ciclo\v2\v3\Vivasgram\BienvenidaLogin\bin\Debug\System.Memory.dll
-H:\DAM 2020\Proyecto fin de ciclo\v2\v3\Vivasgram\BienvenidaLogin\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
-H:\DAM 2020\Proyecto fin de ciclo\v2\v3\Vivasgram\BienvenidaLogin\bin\Debug\System.Buffers.dll
-H:\DAM 2020\Proyecto fin de ciclo\v2\v3\Vivasgram\BienvenidaLogin\bin\Debug\K4os.Compression.LZ4.dll
-H:\DAM 2020\Proyecto fin de ciclo\v2\v3\Vivasgram\BienvenidaLogin\bin\Debug\K4os.Hash.xxHash.dll
-H:\DAM 2020\Proyecto fin de ciclo\v2\v3\Vivasgram\BienvenidaLogin\bin\Debug\System.Numerics.Vectors.dll
-H:\DAM 2020\Proyecto fin de ciclo\v2\v3\Vivasgram\BienvenidaLogin\bin\Debug\MySql.Data.xml
-H:\DAM 2020\Proyecto fin de ciclo\v2\v3\Vivasgram\BienvenidaLogin\obj\Debug\BienvenidaLogin.csprojAssemblyReference.cache
-H:\DAM 2020\Proyecto fin de ciclo\v2\v3\Vivasgram\BienvenidaLogin\obj\Debug\BienvenidaLogin.exe.config
-H:\DAM 2020\Proyecto fin de ciclo\v2\v3\Vivasgram\BienvenidaLogin\obj\Debug\BienvenidaLogin.Form1.resources
-H:\DAM 2020\Proyecto fin de ciclo\v2\v3\Vivasgram\BienvenidaLogin\obj\Debug\BienvenidaLogin.Form2.resources
-H:\DAM 2020\Proyecto fin de ciclo\v2\v3\Vivasgram\BienvenidaLogin\obj\Debug\BienvenidaLogin.Properties.Resources.resources
-H:\DAM 2020\Proyecto fin de ciclo\v2\v3\Vivasgram\BienvenidaLogin\obj\Debug\BienvenidaLogin.csproj.GenerateResource.cache
-H:\DAM 2020\Proyecto fin de ciclo\v2\v3\Vivasgram\BienvenidaLogin\obj\Debug\BienvenidaLogin.csproj.CoreCompileInputs.cache
-H:\DAM 2020\Proyecto fin de ciclo\v2\v3\Vivasgram\BienvenidaLogin\obj\Debug\BienvenidaLogin.csproj.CopyComplete
-H:\DAM 2020\Proyecto fin de ciclo\v2\v3\Vivasgram\BienvenidaLogin\obj\Debug\BienvenidaLogin.exe
-H:\DAM 2020\Proyecto fin de ciclo\v2\v3\Vivasgram\BienvenidaLogin\obj\Debug\BienvenidaLogin.pdb
+C:\Users\juanjo\Desktop\Vivasgram\BienvenidaLogin\bin\Debug\Google.Protobuf.dll
+C:\Users\juanjo\Desktop\Vivasgram\BienvenidaLogin\bin\Debug\ZstdNet.dll
+C:\Users\juanjo\Desktop\Vivasgram\BienvenidaLogin\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\juanjo\Desktop\Vivasgram\BienvenidaLogin\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\juanjo\Desktop\Vivasgram\BienvenidaLogin\bin\Debug\Ubiety.Dns.Core.dll
+C:\Users\juanjo\Desktop\Vivasgram\BienvenidaLogin\bin\Debug\System.Memory.dll
+C:\Users\juanjo\Desktop\Vivasgram\BienvenidaLogin\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\juanjo\Desktop\Vivasgram\BienvenidaLogin\bin\Debug\System.Buffers.dll
+C:\Users\juanjo\Desktop\Vivasgram\BienvenidaLogin\bin\Debug\K4os.Compression.LZ4.dll
+C:\Users\juanjo\Desktop\Vivasgram\BienvenidaLogin\bin\Debug\K4os.Hash.xxHash.dll
+C:\Users\juanjo\Desktop\Vivasgram\BienvenidaLogin\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\juanjo\Desktop\Vivasgram\BienvenidaLogin\bin\Debug\MySql.Data.xml
+C:\Users\juanjo\Desktop\Vivasgram\BienvenidaLogin\obj\Debug\BienvenidaLogin.exe.config
+D:\DAM 2020\Vivasgram\BienvenidaLogin\bin\Debug\BienvenidaLogin.exe.config
+D:\DAM 2020\Vivasgram\BienvenidaLogin\bin\Debug\BienvenidaLogin.exe
+D:\DAM 2020\Vivasgram\BienvenidaLogin\bin\Debug\BienvenidaLogin.pdb
+D:\DAM 2020\Vivasgram\BienvenidaLogin\bin\Debug\Google.Protobuf.dll
+D:\DAM 2020\Vivasgram\BienvenidaLogin\bin\Debug\ZstdNet.dll
+D:\DAM 2020\Vivasgram\BienvenidaLogin\bin\Debug\K4os.Compression.LZ4.Streams.dll
+D:\DAM 2020\Vivasgram\BienvenidaLogin\bin\Debug\BouncyCastle.Crypto.dll
+D:\DAM 2020\Vivasgram\BienvenidaLogin\bin\Debug\Ubiety.Dns.Core.dll
+D:\DAM 2020\Vivasgram\BienvenidaLogin\bin\Debug\System.Memory.dll
+D:\DAM 2020\Vivasgram\BienvenidaLogin\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\DAM 2020\Vivasgram\BienvenidaLogin\bin\Debug\System.Buffers.dll
+D:\DAM 2020\Vivasgram\BienvenidaLogin\bin\Debug\K4os.Compression.LZ4.dll
+D:\DAM 2020\Vivasgram\BienvenidaLogin\bin\Debug\K4os.Hash.xxHash.dll
+D:\DAM 2020\Vivasgram\BienvenidaLogin\bin\Debug\System.Numerics.Vectors.dll
+D:\DAM 2020\Vivasgram\BienvenidaLogin\bin\Debug\MySql.Data.xml
+D:\DAM 2020\Vivasgram\BienvenidaLogin\obj\Debug\BienvenidaLogin.csproj.AssemblyReference.cache
+D:\DAM 2020\Vivasgram\BienvenidaLogin\obj\Debug\BienvenidaLogin.exe.config
+D:\DAM 2020\Vivasgram\BienvenidaLogin\obj\Debug\BienvenidaLogin.Form1.resources
+D:\DAM 2020\Vivasgram\BienvenidaLogin\obj\Debug\BienvenidaLogin.Form2.resources
+D:\DAM 2020\Vivasgram\BienvenidaLogin\obj\Debug\BienvenidaLogin.Properties.Resources.resources
+D:\DAM 2020\Vivasgram\BienvenidaLogin\obj\Debug\BienvenidaLogin.csproj.GenerateResource.cache
+D:\DAM 2020\Vivasgram\BienvenidaLogin\obj\Debug\BienvenidaLogin.csproj.CoreCompileInputs.cache
+D:\DAM 2020\Vivasgram\BienvenidaLogin\obj\Debug\BienvenidaLogin.exe
+D:\DAM 2020\Vivasgram\BienvenidaLogin\obj\Debug\BienvenidaLogin.pdb
+D:\DAM 2020\Vivasgram\BienvenidaLogin\bin\Debug\MySql.Data.dll
+D:\DAM 2020\Vivasgram\BienvenidaLogin\obj\Debug\BienvenidaLogin.csproj.CopyComplete
+D:\DAM 2020\Vivasgram\BienvenidaLogin\bin\Debug\VivasGramm.exe
+D:\DAM 2020\Vivasgram\BienvenidaLogin\bin\Debug\VivasGramm.pdb
+D:\DAM 2020\Vivasgram\BienvenidaLogin\bin\Debug\VivasGramm.exe.config
+C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\obj\Debug\BienvenidaLogin.csprojAssemblyReference.cache

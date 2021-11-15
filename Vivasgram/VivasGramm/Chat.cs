@@ -8,39 +8,56 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using BienvenidaLogin;
 
 namespace VivasGramm
 {
-    class Chat
+    public class Chat
     {
-        private TcpListener server;
-        private TcpClient client = new TcpClient();
-        private IPEndPoint ipendpoint = new IPEndPoint(IPAddress.Any, 15001);
-        private List<Connection> list = new List<Connection>();
+        private List<Socket> clientes = new List<Socket>();
+        public List<string> nombres = new List<string>();
+        public List<string> nombresBase = new List<string>();
 
+        public Object llave = new object();
+        static string cadenaConexion = "Database = vivasgram; Data Source=localhost; Port = 3306; User id=root; ";
+        
+        MySqlConnection conectbd1 = new MySqlConnection(cadenaConexion);
+        MySqlDataReader reader1 = null;
+        
+        MySqlConnection conectbd2 = new MySqlConnection(cadenaConexion);
+        MySqlDataReader reader2 = null;
+        
+        MySqlConnection conectbd3 = new MySqlConnection(cadenaConexion);
+        MySqlDataReader reader3 = null;
+        
+        public bool usuarioRegistrado = false;
+        bool correcto = true;
+        string nombre;
 
-        private struct Connection
-        {
-            public NetworkStream stream;
-            public StreamWriter streamw;
-            public StreamReader streamr;
-            public string nick;
-        }
-
-        Connection con;
+        BienvenidaLogin.Form1 f1 = new Form1();
 
         public Chat()
         {
             
         }
 
-        string cadenaConexion = "Database = vivasgram; Data Source=localhost; Port = 3306; User id=root ; ";
-        public void Inicio()
+        public struct Usuario
         {
-            Console.WriteLine("Servidor en marcha");
-            server = new TcpListener(ipendpoint);
-            server.Start();
+            public string nickuser;
+            public int puerto;
+            public NetworkStream stream;
+            public StreamWriter streamwriter;
+            public StreamReader streamreader;
+            
+        }
 
+        Usuario user;
+
+        public void InicioChat()
+        {
+            bool puertoCorrecto = false;
+            usuarioRegistrado = false;
+            correcto = true;
 
             MySqlConnection conectbd = new MySqlConnection(cadenaConexion);
             MySqlDataReader reader = null;
@@ -63,68 +80,228 @@ namespace VivasGramm
                 conectbd.Close();
             }
 
-            while (true)
-            {
-                client = server.AcceptTcpClient();
-                con = new Connection();
-                con.stream = client.GetStream();
-                con.streamr = new StreamReader(con.stream);
-                con.streamw = new StreamWriter(con.stream);
+            int puerto = 15001;
 
-                con.nick = con.streamr.ReadLine();
-
-                list.Add(con);
-                Console.WriteLine(con.nick + " se ha conectado.");
-
-                Thread t = new Thread(Escuchar_conexion);
-
-                t.Start();
-            }
-
-
-        }
-
-        void Escuchar_conexion()
-        {
-            Connection usercon = con;
-
-            do
-            {
+            while (!puertoCorrecto)
                 try
                 {
-                    string mensaje = usercon.streamr.ReadLine();
-                    Console.WriteLine(usercon.nick + ": " + mensaje);
-                    foreach (Connection c in list)
+                    IPEndPoint endpoint = new IPEndPoint(IPAddress.Parse("127.0.0.1"), puerto);
+                    puertoCorrecto = true;
+
+                    Socket socketConexion = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                    socketConexion.Bind(endpoint);
+                    socketConexion.Listen(2);
+
+                    while (correcto)
                     {
+                       
+                            Socket socketCliente = socketConexion.Accept();
+                            Thread hilos = new Thread(HiloCliente);
+
+                            user = new Usuario();
+                            user.stream = new NetworkStream(socketCliente);
+                            user.streamwriter = new StreamWriter(user.stream);
+                            user.streamreader = new StreamReader(user.stream);
+                            user.nickuser = user.streamreader.ReadLine();
+                            nombre = user.nickuser.ToLower();
+
+                            nombres.Add(nombre);
+
+                            try
+                            {
+                                nombresBase.Clear();
+                                string consultaSiEsta = "Select nombreusuario from usuarios";
+                                MySqlCommand comando2 = new MySqlCommand(consultaSiEsta);
+                                comando2.Connection = conectbd2;
+                                conectbd2.Open();
+                                reader2 = comando2.ExecuteReader();
+                                while (reader2.Read())
+                                {
+                                    nombresBase.Add(reader2.GetString(0));
+                                }
+
+                                for (int i = 0; i < nombres.Count; i++)
+                                {
+                                    for (int j = 0; j < nombresBase.Count; j++)
+                                    { 
+                                        if (nombresBase.Contains(nombres[i]))
+                                        {
+                                            
+                                            user.streamwriter.WriteLine("si");
+                                            usuarioRegistrado = true;
+                                        }
+                                        else
+                                        {
+                                            usuarioRegistrado = false;
+                                        }
+                                    }
+                                }
+                            }
+                            catch (MySqlException e)
+                            {
+                                Console.WriteLine("Error: " + e.ErrorCode);
+
+                            }
+                            finally
+                            {
+                                conectbd2.Close();
+                            }
+
+                            if (!usuarioRegistrado)
+                            {
+                                hilos.Start(socketCliente);
+                            }
+                            else
+                            {
+                                
+                                user.streamwriter.WriteLine("si");
+                            }
+                        }
+
+                }
+                catch (SocketException e) when (e.ErrorCode == (int)SocketError.AddressAlreadyInUse)
+                {
+                    if (puerto < IPEndPoint.MaxPort)
+                    {
+                        puerto++;
+                    }
+                    else
+                    {
+                        puerto = 10000;
+                    }
+                }
+                catch (Exception)
+                {
+
+                }
+        }
+
+
+
+        public void HiloCliente(object Socket)
+        {
+            Socket socketCliente = (Socket)Socket;
+            string mensaje;
+            bool cerrarChat = false;
+            IPEndPoint info = (IPEndPoint)socketCliente.RemoteEndPoint;
+
+
+            lock (llave)
+            {
+                if (!usuarioRegistrado)
+                {
+                    clientes.Add(socketCliente);
+                    Console.WriteLine("Añadido");
+                    try
+                    {
+                        string consulta1 = "Insert into usuarios (nombreusuario, puerto) values " + "('" + nombre + "', '" + info.Port + "');";
+                        MySqlCommand comando1 = new MySqlCommand(consulta1);
+                        comando1.Connection = conectbd1;
+                        conectbd1.Open();
+                        reader1 = comando1.ExecuteReader();
+                    }
+                    catch (MySqlException e)
+                    {
+                        Console.WriteLine("Error: " + e.ErrorCode);
+
+                    }
+                    finally
+                    {
+                        conectbd1.Close();
+                    }
+
+                }
+            }
+
+            using (NetworkStream ns = new NetworkStream(socketCliente))
+            using (StreamReader sr = new StreamReader(ns))
+            using (StreamWriter sw = new StreamWriter(ns))
+            {
+                sw.WriteLine("Bienvenido a VivasGram {0}! \nConexion al puerto:{1}", user.nickuser, info.Port);
+                lock (llave)
+                {
+                    sw.WriteLine("Personas conectadas en el momento de tu conexión:{0} ", clientes.Count);
+                }
+                sw.Flush();
+
+                while (!cerrarChat)
+                {
+                    try
+                    {
+                        mensaje = sr.ReadLine();
+                        if (mensaje != null)
+                        {    
+                            EnvioMensaje(mensaje, info);   
+                        }
+
+                    }
+                    catch (IOException)
+                    {
+                        Console.WriteLine("Se ha desconectado " + info.Port);
+                        socketCliente.Close();
+                        lock (llave)
+                        {
+                            try
+                            {
+                                string consultaDelete = "delete from usuarios where puerto = ('" + info.Port + "');";
+                                MySqlCommand comando3 = new MySqlCommand(consultaDelete);
+                                comando3.Connection = conectbd3;
+                                conectbd3.Open();
+                                reader3 = comando3.ExecuteReader();
+                            }
+                            catch (MySqlException e)
+                            {
+                                Console.WriteLine("Error: " + e.ErrorCode);
+
+                            }
+                            finally
+                            {
+                                conectbd3.Close();
+                            }
+                            nombres.RemoveAt(clientes.IndexOf(socketCliente));
+                            clientes.Remove(socketCliente);
+                        }
+                        cerrarChat = true;
+
+                    }
+
+
+                }
+
+            }
+        }
+
+        public void EnvioMensaje(string m, IPEndPoint ie)
+        {
+            IPEndPoint info;
+            Usuario usermensaje;
+
+
+            lock (llave)
+            {
+                for (int i = clientes.Count; i > 0; i--)
+                {
+
+                    {
+                        info = (IPEndPoint)clientes[i - 1].RemoteEndPoint;
+                        usermensaje.stream = new NetworkStream(clientes[i - 1]);
+                        usermensaje.streamwriter = new StreamWriter(usermensaje.stream);
                         try
                         {
-                            c.streamw.WriteLine(usercon.nick + ": " + mensaje);
-                            c.streamw.Flush();                            
+
+                            usermensaje.streamwriter.WriteLine(user.nickuser + " : " + m);
+                            usermensaje.streamwriter.Flush();
+
                         }
-                        catch
+                        catch (Exception e)
                         {
-                            Console.WriteLine("se ha detenido la conexion");
+                            Console.WriteLine("" + e.Message);
                         }
                     }
-                    
-                }
-                catch
-                {
-                    list.Remove(usercon);
-                    MySqlConnection conectbd2 = new MySqlConnection(cadenaConexion);
-                    MySqlDataReader reader2 = null;
 
-                    Console.WriteLine(usercon.nick + " se ha desconectado. Usuarios conectados: "+list.Count);
-                    string consulta = "Delete from usuarios where nombreusuario like '" + usercon.nick + "'";
-                    MySqlCommand comando = new MySqlCommand(consulta);
-                    comando.Connection = conectbd2;
-                    conectbd2.Open();
-                    reader2 = comando.ExecuteReader();
-                    conectbd2.Close();
-
-                    break;
                 }
-            } while (true);
+            }
         }
+
     }
 }
