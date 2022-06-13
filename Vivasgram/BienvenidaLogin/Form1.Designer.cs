@@ -38,6 +38,11 @@ namespace BienvenidaLogin
             this.listBoxMensajes = new System.Windows.Forms.ListBox();
             this.txtRedac = new System.Windows.Forms.TextBox();
             this.btnEnviar = new System.Windows.Forms.Button();
+            this.lblPass = new System.Windows.Forms.Label();
+            this.txtPass = new System.Windows.Forms.TextBox();
+            this.btnRegistro = new System.Windows.Forms.Button();
+            this.btnCancelarRegistro = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnConectar
@@ -67,7 +72,7 @@ namespace BienvenidaLogin
             this.lblNombre.AutoSize = true;
             this.lblNombre.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.lblNombre.Font = new System.Drawing.Font("Reem Kufi", 12F);
-            this.lblNombre.Location = new System.Drawing.Point(132, 233);
+            this.lblNombre.Location = new System.Drawing.Point(120, 129);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(131, 38);
             this.lblNombre.TabIndex = 2;
@@ -76,7 +81,7 @@ namespace BienvenidaLogin
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(302, 245);
+            this.txtNombre.Location = new System.Drawing.Point(289, 145);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(233, 22);
@@ -96,7 +101,7 @@ namespace BienvenidaLogin
             // 
             this.listBoxMensajes.FormattingEnabled = true;
             this.listBoxMensajes.ItemHeight = 16;
-            this.listBoxMensajes.Location = new System.Drawing.Point(46, 40);
+            this.listBoxMensajes.Location = new System.Drawing.Point(46, 45);
             this.listBoxMensajes.Name = "listBoxMensajes";
             this.listBoxMensajes.ScrollAlwaysVisible = true;
             this.listBoxMensajes.Size = new System.Drawing.Size(554, 420);
@@ -122,6 +127,55 @@ namespace BienvenidaLogin
             this.btnEnviar.Visible = false;
             this.btnEnviar.Click += new System.EventHandler(this.btnEnviar_Click);
             // 
+            // lblPass
+            // 
+            this.lblPass.AutoSize = true;
+            this.lblPass.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblPass.Font = new System.Drawing.Font("Reem Kufi", 12F);
+            this.lblPass.Location = new System.Drawing.Point(123, 206);
+            this.lblPass.Name = "lblPass";
+            this.lblPass.Size = new System.Drawing.Size(122, 38);
+            this.lblPass.TabIndex = 8;
+            this.lblPass.Text = "Contraseña";
+            // 
+            // txtPass
+            // 
+            this.txtPass.Location = new System.Drawing.Point(289, 218);
+            this.txtPass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtPass.Name = "txtPass";
+            this.txtPass.PasswordChar = '*';
+            this.txtPass.Size = new System.Drawing.Size(233, 22);
+            this.txtPass.TabIndex = 9;
+            // 
+            // btnRegistro
+            // 
+            this.btnRegistro.Location = new System.Drawing.Point(276, 402);
+            this.btnRegistro.Name = "btnRegistro";
+            this.btnRegistro.Size = new System.Drawing.Size(122, 23);
+            this.btnRegistro.TabIndex = 10;
+            this.btnRegistro.Text = "Registrarse";
+            this.btnRegistro.UseVisualStyleBackColor = true;
+            this.btnRegistro.Click += new System.EventHandler(this.btnRegistro_Click);
+            // 
+            // btnCancelarRegistro
+            // 
+            this.btnCancelarRegistro.Location = new System.Drawing.Point(475, 400);
+            this.btnCancelarRegistro.Name = "btnCancelarRegistro";
+            this.btnCancelarRegistro.Size = new System.Drawing.Size(125, 23);
+            this.btnCancelarRegistro.TabIndex = 16;
+            this.btnCancelarRegistro.Text = "Cancelar";
+            this.btnCancelarRegistro.UseVisualStyleBackColor = true;
+            this.btnCancelarRegistro.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(475, 472);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 17);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "label1";
+            // 
             // Form1
             // 
             this.AcceptButton = this.btnConectar;
@@ -130,6 +184,11 @@ namespace BienvenidaLogin
             this.BackgroundImage = global::BienvenidaLogin.Properties.Resources.colegio_vivas_sl_img143377t0;
             this.CancelButton = this.btnCancelar;
             this.ClientSize = new System.Drawing.Size(646, 544);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnCancelarRegistro);
+            this.Controls.Add(this.btnRegistro);
+            this.Controls.Add(this.txtPass);
+            this.Controls.Add(this.lblPass);
             this.Controls.Add(this.btnEnviar);
             this.Controls.Add(this.txtRedac);
             this.Controls.Add(this.listBoxMensajes);
@@ -159,6 +218,11 @@ namespace BienvenidaLogin
         private System.Windows.Forms.TextBox txtRedac;
         private System.Windows.Forms.Button btnEnviar;
         private System.Windows.Forms.ListBox listBoxMensajes;
+        private System.Windows.Forms.Label lblPass;
+        private System.Windows.Forms.TextBox txtPass;
+        private System.Windows.Forms.Button btnRegistro;
+        private System.Windows.Forms.Button btnCancelarRegistro;
+        private System.Windows.Forms.Label label1;
     }
 }
 

@@ -11,8 +11,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VivasGramm;
 using MySql.Data.MySqlClient;
-//using VivasGramm;
 
 namespace BienvenidaLogin
 {
@@ -22,9 +22,10 @@ namespace BienvenidaLogin
         private StreamWriter streamwriter;
         private StreamReader streamreader;
 
+
         const string IP_SERVER = "127.0.0.1";
         public Object l = new object();
-        public string nombreUsuario;
+        public string nombreUsuario, contrasenha;
         public List<string> nombres = new List<string>();
         public bool usuarioRegistrado = false;
 
@@ -37,67 +38,90 @@ namespace BienvenidaLogin
             this.MaximizeBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.BackgroundImageLayout = ImageLayout.Stretch;
-            
+
 
 
         }
         private void btnConectar_Click(object sender, EventArgs e)
         {
             try
-                {
-
+            {
+                Thread hiloListen = new Thread(EsucharConexion);
+                hiloListen.Start();
                 lblAviso.Text = "";
+                //if (ie.)
+                //{
+                    if (txtNombre.Text.Contains(" ") || txtNombre.Text == "" || txtPass.Text.Contains(" ") || txtPass.Text == "")
+                    {
+                        lblAviso.Text = "INTRODUZCA UN USUARIO CORRECTO \nSIN ESPACIOS";
+                    }
+                    else
+                    {
+                        //for (int  i = 0;  i < c.nombresBase.Count;  i++)
+                        //{
+                        //    Console.WriteLine(c.nombresBase.Count); 
+                        //    //if (!c.nombresBase[i].Contains(txtNombre.Text))
+                        //    //{
+                        //    //    lblAviso.Text = "USUARIO NO REGISTRADO , POR FAVOR INTRODUZ";
+                        //    //}
 
-                if (txtNombre.Text.Contains(" ") || txtNombre.Text == "" )
-                {
-                    lblAviso.Text = "INTRODUZCA UN USUARIO CORRECTO \nSIN ESPACIOS";
-                }
-                else
-                {
+                        //}
+                        this.lblNombre.Visible = false;
+                        this.lblAviso.Visible = false;
+                        this.txtNombre.Visible = false;
+                        this.txtPass.Visible = false;
+                        this.btnRegistro.Visible = false;
+                        this.lblPass.Visible = false;
+                        this.btnCancelar.Visible = false;
+                        this.btnConectar.Visible = false;
 
-                    this.lblNombre.Visible = false;
-                    this.lblAviso.Visible = false;
-                    this.txtNombre.Visible = false;
-                    this.btnCancelar.Visible = false;
-                    this.btnConectar.Visible = false;
+                        this.listBoxMensajes.Visible = true;
+                        this.btnEnviar.Visible = true;
+                        this.txtRedac.Visible = true;
 
-                    this.listBoxMensajes.Visible = true;
-                    this.btnEnviar.Visible = true;
-                    this.txtRedac.Visible = true;
+                        this.Text = "VivasGram";
 
-                    this.Text = "VivasGram";
+                        this.AcceptButton = this.btnEnviar;
 
-                    this.AcceptButton = this.btnEnviar;
+                        this.BackgroundImage = BienvenidaLogin.Properties.Resources.Fondo_chat_vegetales_20_bananas;
 
-                    this.BackgroundImage = BienvenidaLogin.Properties.Resources.Fondo_chat_vegetales_20_bananas;
+                        nombreUsuario = this.txtNombre.Text;
+                        contrasenha = this.txtPass.Text;
 
-                    nombreUsuario = this.txtNombre.Text;
+                        server.Connect(ie);
+                        stream = new NetworkStream(server);
+                        streamwriter = new StreamWriter(stream);
+                        streamreader = new StreamReader(stream);
 
-                    server.Connect(ie);
-                    stream = new NetworkStream(server);
-                    streamwriter = new StreamWriter(stream);
-                    streamreader = new StreamReader(stream);
+                        streamwriter.WriteLine(nombreUsuario);
+                        streamwriter.WriteLine(contrasenha);
 
-                    streamwriter.WriteLine(nombreUsuario);
+                        //Thread hiloListen = new Thread(EsucharConexion);
+                        //hiloListen.Start();
 
-                    Thread hiloListen = new Thread(EsucharConexion);
-                    hiloListen.Start();
+                        streamwriter.Flush();
 
-                    streamwriter.Flush();
-
-                }
                         
+
+                    }
+                //}
+                //else
+                //{
+                //    lblAviso.Text = "El servidor no está operativo";
+                //}
+
+
             }
             catch (SocketException se)
             {
                 Console.WriteLine("Error de conexion {0}", se.ErrorCode);
             }
-            
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private delegate void DAddItem(String s);
@@ -134,7 +158,7 @@ namespace BienvenidaLogin
         private void btnEnviar_Click(object sender, EventArgs e)
         {
             if (txtRedac.Text == "" || txtRedac.Text[0] == ' ')
-            {    
+            {
                 txtRedac.Text = ("Escribe un mensaje válido");
             }
             else
@@ -143,7 +167,7 @@ namespace BienvenidaLogin
                 streamwriter.Flush();
                 txtRedac.Clear();
             }
-            
+
 
         }
 
@@ -156,5 +180,88 @@ namespace BienvenidaLogin
         {
 
         }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            
+
+            try
+            {
+                //this.txtContraseñaNuev.Visible = false;
+                //this.txtNombreNuevo.Visible = false;
+                //this.lblNombreRegistro.Visible = false;
+                //this.lblPassNueva.Visible = false;
+
+                this.listBoxMensajes.Visible = true;
+                this.txtRedac.Visible = true;
+                this.btnEnviar.Visible = true;
+
+                //this.btnAceptar.Visible = false;
+                this.btnCancelarRegistro.Visible = false;
+
+                this.AcceptButton = btnEnviar;
+
+                this.BackgroundImage = BienvenidaLogin.Properties.Resources.Fondo_chat_vegetales_20_bananas;
+
+
+                using (NetworkStream ns = new NetworkStream(server))
+                using (StreamReader sr = new StreamReader(ns))
+                using (StreamWriter sw = new StreamWriter(ns))
+                {
+                    sw.WriteLine("registro");
+                    //sw.WriteLine(this.txtNombreNuevo.Text);
+                    //sw.WriteLine(this.txtContraseñaNuev.Text);
+                }
+                Thread hiloListen = new Thread(EsucharConexion);
+                hiloListen.Start();
+            }
+            catch (Exception)
+            {
+
+                label1.Text = "No ";
+            }
+            
+
+        }
+
+        private void btnRegistro_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // EN caso de que el usuario no este registrado se le registra pulsando aqui 
+                lblAviso.Text = "";
+
+                //this.lblNombre.Visible = false;
+                //this.lblAviso.Visible = false;
+                //this.txtNombre.Visible = false;
+                //this.btnCancelar.Visible = false;
+                //this.btnConectar.Visible = false;
+                //this.btnRegistro.Visible = false;
+                //this.lblPass.Visible = false;
+                //this.txtPass.Visible = false;
+
+                //this.listBoxMensajes.Visible = false;
+                //this.btnEnviar.Visible = false;
+                //this.txtRedac.Visible = false;
+
+                //this.txtNombreNuevo.Visible = true;
+                //this.txtContraseñaNuev.Visible = true;
+                //this.lblNombreRegistro.Visible = true;
+                //this.lblPassNueva.Visible = true;
+                //this.btnAceptar.Visible = true;
+                //this.btnCancelarRegistro.Visible = true;
+
+                this.Text = "VivasGram";
+
+                //this.AcceptButton = this.btnAceptar;
+
+
+            }
+            catch (SocketException se)
+            {
+                Console.WriteLine("Error de conexion {0}", se.ErrorCode);
+            }
+        }
+
     }
 }

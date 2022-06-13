@@ -72,7 +72,3 @@ D:\DAM 2020\Vivasgram\VivasGramm\obj\Debug\VivasGramm.exe
 D:\DAM 2020\Vivasgram\VivasGramm\obj\Debug\VivasGramm.pdb
 D:\DAM 2020\Vivasgram\VivasGramm\bin\Debug\MySql.Data.dll
 D:\DAM 2020\Vivasgram\VivasGramm\obj\Debug\VivasGramm.csproj.CopyComplete
-C:\Users\Juanjo\source\repos\Vivasgram\VivasGramm\obj\Debug\VivasGramm.csprojAssemblyReference.cache
-C:\Users\Juanjo\source\repos\Vivasgram\VivasGramm\bin\Debug\BienvenidaLogin.exe
-C:\Users\Juanjo\source\repos\Vivasgram\VivasGramm\bin\Debug\BienvenidaLogin.pdb
-C:\Users\Juanjo\source\repos\Vivasgram\VivasGramm\bin\Debug\BienvenidaLogin.exe.config

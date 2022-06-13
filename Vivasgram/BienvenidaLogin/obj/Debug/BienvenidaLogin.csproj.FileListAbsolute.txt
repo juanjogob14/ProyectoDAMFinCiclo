@@ -76,3 +76,6 @@ D:\DAM 2020\Vivasgram\BienvenidaLogin\bin\Debug\VivasGramm.exe
 D:\DAM 2020\Vivasgram\BienvenidaLogin\bin\Debug\VivasGramm.pdb
 D:\DAM 2020\Vivasgram\BienvenidaLogin\bin\Debug\VivasGramm.exe.config
 C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\obj\Debug\BienvenidaLogin.csprojAssemblyReference.cache
+C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\bin\Debug\VivasGramm.exe
+C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\bin\Debug\VivasGramm.pdb
+C:\Users\Juanjo\source\repos\Vivasgram\BienvenidaLogin\bin\Debug\VivasGramm.exe.config
